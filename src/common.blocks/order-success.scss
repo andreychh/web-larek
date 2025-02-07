@@ -1,0 +1,21 @@
+@use "variables" as *;
+@use "mixins";
+
+.order-success {
+  @include mixins.flex(column);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1rem;
+
+  &::before {
+    width: 256px;
+    @include mixins.background("../images/Subtract.png");
+    height: 256px;
+    content: " ";
+  }
+
+  &__close {
+    margin-top: 2rem;
+  }
+}

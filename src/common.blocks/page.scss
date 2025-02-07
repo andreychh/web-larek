@@ -1,0 +1,18 @@
+@use "variables" as *;
+
+html,
+body.page {
+  font-family: $font;
+  font-size: $baseFontSize;
+  height: 100%;
+  color: $baseFontColor;
+  background: $background;
+}
+
+.page__wrapper {
+  width: 100%;
+
+  &_locked {
+    position: fixed;
+  }
+}

@@ -1,0 +1,37 @@
+@use "variables" as *;
+@use "mixins";
+
+.form {
+  @include mixins.flex(column);
+  border-radius: 3rem;
+  gap: 1.5rem;
+
+  &__label {
+    flex-grow: 1;
+  }
+
+  &__input {
+    font-size: 1.4rem;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 1rem;
+    color: white;
+    border: $defaultBorder;
+    border-radius: 1.5rem;
+    outline-color: $secondary;
+    background: transparent;
+
+    &:focus {
+      outline-style: solid;
+    }
+
+    &:invalid {
+      border-color: $error;
+      outline-color: $error;
+    }
+
+    &::placeholder {
+      color: lighten($primaryLight, 23%);
+    }
+  }
+}

@@ -1,0 +1,71 @@
+@use "variables" as *;
+@use "mixins";
+
+.modal {
+  @include mixins.sublayer;
+  // height: max-content;
+  position: absolute;
+  z-index: 100;
+  display: none;
+  justify-content: center;
+  box-sizing: border-box;
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+  background-color: $overlayBackground;
+
+  &_active {
+    display: flex;
+  }
+
+  &__container {
+    @include mixins.container;
+    @include mixins.flex(column);
+    position: relative;
+    box-sizing: border-box;
+    // min-height: 90vmin;
+    border-radius: 3rem;
+    background-color: $background;
+    gap: $defaultPadding;
+  }
+
+  &__content {
+    flex-grow: 1;
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin: 0;
+  }
+
+  &__actions {
+    @include mixins.flex(row);
+    align-items: center;
+    gap: 2rem;
+  }
+
+  &__close {
+    position: absolute;
+    top: calc(#{$defaultPadding} / 2);
+    right: calc(#{$defaultPadding} / 2);
+    @include mixins.icon(2rem, "close");
+    @include mixins.link(white, $hover);
+  }
+
+  &__footer {
+    @include mixins.flex(row);
+    align-items: center;
+    gap: 2rem;
+  }
+
+  &__message {
+    overflow: hidden;
+    max-width: 60%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    &_error {
+      color: $error;
+    }
+  }
+}

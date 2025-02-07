@@ -1,0 +1,93 @@
+@use "variables" as *;
+@use "mixins";
+
+.card {
+  @include mixins.flex(column);
+  padding: $defaultPadding;
+  color: white;
+  border: 0;
+  border-radius: $defaultBorderRadius;
+  background-color: $primary;
+
+  &_full {
+    flex-direction: row;
+    background-color: transparent;
+
+    .card__title {
+      flex-grow: 0;
+    }
+  }
+
+  &_compact {
+    align-items: center;
+    flex-direction: row;
+    border-radius: 0;
+    background-color: transparent;
+
+    .card__title {
+      flex-grow: 1;
+    }
+  }
+
+  &__column {
+    @include mixins.flex(column);
+    align-items: flex-start;
+  }
+
+  &__row {
+    @include mixins.flex(row);
+    align-items: center;
+    gap: $defaultPadding;
+  }
+
+  &__image {
+    height: 390px;
+    margin: 3.75rem;
+    aspect-ratio: 1;
+  }
+
+  &__title {
+    font-size: $titleFontSize;
+    font-weight: 500;
+    flex-grow: 1;
+    margin: 0;
+  }
+
+  &__text {
+    flex-grow: 1;
+    text-align: left;
+  }
+
+  &__category {
+    margin-bottom: 12px;
+    padding: 0.5rem 1.25rem;
+    color: $primary;
+    border-radius: 2.5rem;
+
+    &_soft {
+      background-color: $category1;
+    }
+
+    &_hard {
+      background-color: $category5;
+    }
+
+    &_other {
+      background-color: $category2;
+    }
+
+    &_additional {
+      background-color: $category3;
+    }
+
+    &_button {
+      background-color: $category4;
+    }
+  }
+
+  &__action {
+  }
+
+  &__price {
+  }
+}

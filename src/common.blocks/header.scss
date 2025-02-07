@@ -1,0 +1,52 @@
+@use "variables" as *;
+@use "mixins";
+
+.header {
+  height: $headerHeight;
+  background-color: $primary;
+
+  &__container {
+    @include mixins.container(45px, 45px);
+    @include mixins.flex(row);
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    height: $headerElementsSize;
+  }
+
+  &__logo {
+    &-image {
+      display: block;
+      height: 100%;
+    }
+  }
+
+  &__basket {
+    //@include mixins.icon($headerElementsSize, 'basket-2');
+    @include mixins.link($primary, $hover);
+    position: relative;
+    width: 58px;
+    height: 58px;
+    cursor: pointer;
+    border: none;
+    background-image: url(../images/shopping_cart.svg);
+
+    &-counter {
+      font-size: 0.5rem;
+      font-weight: 600;
+      position: absolute;
+      top: 0;
+      right: -0.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 0.8rem;
+      height: 0.8rem;
+      color: $background;
+      border-radius: 100%;
+      background-color: $category1;
+    }
+  }
+}
