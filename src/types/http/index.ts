@@ -31,12 +31,30 @@ export class HTTPProduct implements Product<string> {
   }
 }
 
+export class HTTPCatalog implements Catalog<HTTPProduct> {
+  add(...products: HTTPProduct[]): void {
+    throw new Error("Method not implemented.");
+  }
+
+  remove(...products: HTTPProduct[]): void {
+    throw new Error("Method not implemented.");
+  }
+
+  clear(): void {
+    throw new Error("Method not implemented.");
+  }
+
+  totalPrice(): number {
+    throw new Error("Method not implemented.");
+  }
+}
+
 export class HTTPOrder implements Order<string> {
   id(): string {
     throw new Error("Method not implemented.");
   }
 
-  products(): Catalog<Product<string>> {
+  products(): HTTPCatalog {
     throw new Error("Method not implemented.");
   }
 
@@ -53,24 +71,6 @@ export class HTTPOrder implements Order<string> {
   }
 
   number(): string {
-    throw new Error("Method not implemented.");
-  }
-
-  totalPrice(): number {
-    throw new Error("Method not implemented.");
-  }
-}
-
-export class HTTPCatalog implements Catalog<HTTPProduct> {
-  add(...products: HTTPProduct[]): void {
-    throw new Error("Method not implemented.");
-  }
-
-  remove(...products: HTTPProduct[]): void {
-    throw new Error("Method not implemented.");
-  }
-
-  clear(): void {
     throw new Error("Method not implemented.");
   }
 

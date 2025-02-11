@@ -14,6 +14,13 @@ export interface Product<T extends Comparable> {
   price(): number;
 }
 
+export interface Catalog<T extends Product<Comparable>> {
+  add(...products: T[]): void;
+  remove(...products: T[]): void;
+  clear(): void;
+  totalPrice(): number;
+}
+
 export interface Order<T extends Comparable> {
   id(): T;
   products(): Catalog<Product<T>>;
@@ -21,13 +28,6 @@ export interface Order<T extends Comparable> {
   paymentMethod(): PaymentMethod;
   email(): string;
   number(): string;
-  totalPrice(): number;
-}
-
-export interface Catalog<T extends Product<Comparable>> {
-  add(...products: T[]): void;
-  remove(...products: T[]): void;
-  clear(): void;
   totalPrice(): number;
 }
 
